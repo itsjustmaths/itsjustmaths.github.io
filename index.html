@@ -73,7 +73,7 @@
 </head>
 <body class="bg-gradient-to-r from-yellow-100 to-white flex justify-center items-center min-h-screen p-4">
     <div class="w-full bg-gradient-to-r from-yellow-200 to-amber-200 text-gray-700 text-center py-2 px-4 rounded-b-md shadow-md mb-6 fixed top-0 left-0 z-10">
-        <strong class="font-semibold">Important Announcement:</strong> Server access is for authorized personnel only!
+        <strong class="font-semibold">Important Announcement:</strong> Produced By Darren not Benyameen!
     </div>
 
     <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md transition-transform hover:scale-105" style="margin-top: 4rem;">
@@ -83,7 +83,7 @@
             <div>
                 <label for="loginUsername" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
                 <input type="text" id="loginUsername" name="loginUsername" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-semibold" placeholder="Username" required>
-                 <div id="login-username-error" class="text-red-500 text-xs italic" style="display: none;"></div>
+                <div id="login-username-error" class="text-red-500 text-xs italic" style="display: none;"></div>
             </div>
             <div>
                 <label for="loginPassword" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
@@ -95,7 +95,7 @@
             <div id="login-success" class="text-green-600 text-center font-semibold" style="display: none;"></div>
         </form>
 
-        <div id="adminText">Your code is:</div>
+        <div id="adminText" style="color: red; font-weight: bold; font-family: Arial;">Your code is: <span id="generatedCode"></span></div>
         <button id="logOutButton" class = "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Log Out</button>
     </div>
 
@@ -107,6 +107,8 @@
         const logInTitle = document.querySelector('h1');
         const adminText = document.getElementById('adminText');
         const logOutButton = document.getElementById('logOutButton');
+        const generatedCodeDisplay = document.getElementById('generatedCode');
+        let generatedCode = ""; // Store the generated code
 
 
         // Get the error message elements for login form
@@ -147,6 +149,16 @@
             return isValid; //return the isvalid
         }
 
+        // Function to generate a random 6-character code with letters and numbers
+        function generateRandomCode() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 6; i++) {
+                code += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return code;
+        }
+
         // Event listener for log in form submission
         logInForm.addEventListener('submit', (event) => {
             event.preventDefault();
@@ -160,7 +172,12 @@
                     // Add the class to trigger the transition
                     body.classList.add('login-success');
                     adminText.style.display = 'block';
+                    logInTitle.textContent = "Logged In"; // Change the heading
                     logInTitle.style.opacity = 1;
+
+                    // Generate and display the random code
+                    generatedCode = generateRandomCode(); // Store the code
+                    generatedCodeDisplay.textContent = generatedCode;
 
                 } else {
                     logInError.textContent = 'Invalid credentials. Please try again.';
@@ -171,11 +188,8 @@
         });
 
         logOutButton.addEventListener('click', () => {
-            body.classList.remove('login-success');
-            adminText.style.display = 'none';
-            logInForm.style.display = 'block';
-            logOutButton.style.display = 'none';
-            logInTitle.style.opacity = 1;
+            // Refresh the page
+            window.location.reload();
         });
 
     </script>
