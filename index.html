@@ -3,370 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up / Login System</title>
-    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700&display=swap" rel="stylesheet">
-    <script>
-        function showMessage(type, message) {
-            const messageContainer = document.getElementById('message-container');
-            messageContainer.innerHTML = ''; // Clear previous messages
-
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${type}`; // Use classes 'message' and 'success' or 'error'
-
-            if (type === 'success') {
-                messageDiv.style.backgroundColor = '#4CAF50'; // Green for success
-                messageDiv.style.color = 'white';
-            } else if (type === 'error') {
-                messageDiv.style.backgroundColor = '#FF5252'; // Red for error
-                messageDiv.style.color = 'white';
-            }
-
-            messageDiv.textContent = message;
-            messageContainer.appendChild(messageDiv);
-
-            // Clear the message after a few seconds
-            setTimeout(() => {
-                messageDiv.remove();
-            }, 5000); // 5 seconds
-        }
-
-        function validateForm(formType) {
-            const username = document.getElementById(formType + '-username').value.trim();
-            const email = document.getElementById(formType + '-email').value.trim();
-            const password = document.getElementById(formType + '-password').value.trim();
-
-            if (!username || !email || !password) {
-                showMessage('error', 'Please fill in all fields.');
-                return false;
-            }
-
-            if (formType === 'sign-up') {
-              const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-                if (!emailRegex.test(email)) {
-                    showMessage('error', 'Please enter a valid email address.');
-                    return false;
-                }
-            }
-            return true;
-        }
-
-
-
-        async function signUp() {
-            if (!validateForm('sign-up')) {
-                return;
-            }
-
-            const username = document.getElementById('sign-up-username').value;
-            const email = document.getElementById('sign-up-email').value;
-            const password = document.getElementById('sign-up-password').value;
-
-            const formData = new FormData();
-            formData.append('username', username);
-            formData.append('email', email);
-            formData.append('password', password);
-
-            try {
-                const response = await fetch('/signup', { //  Endpoint
-                    method: 'POST',
-                    body: formData,
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    //showMessage('success', data.message); //original
-                    // Show the verification modal.  The server should return the verification code.
-                    showVerificationModal(data.verificationCode, email);
-
-                } else {
-                    showMessage('error', data.error);
-                }
-            } catch (error) {
-                showMessage('error', 'An error occurred during sign up.');
-                console.error('Sign Up Error:', error);
-            }
-        }
-
-
-
-        async function login() {
-            if (!validateForm('login')) {
-                return;
-            }
-
-            const username = document.getElementById('login-username').value;
-            const password = document.getElementById('login-password').value;
-
-            const formData = new FormData();
-            formData.append('username', username);
-            formData.append('password', password);
-
-            try {
-                const response = await fetch('/login', {  //  Endpoint
-                    method: 'POST',
-                    body: formData,
-                });
-
-                const data = await response.json();
-                if (response.ok) {
-                    showMessage('success', data.message);
-                    // Redirect to a logged-in page (e.g., dashboard)
-                    window.location.href = '/dashboard'; //  Change
-                } else {
-                    showMessage('error', data.error);
-                }
-            } catch (error) {
-                showMessage('error', 'An error occurred during login.');
-                console.error('Login Error:', error);
-            }
-        }
-
-
-
-        function showVerificationModal(verificationCode, email) {
-            const modal = document.getElementById('verification-modal');
-            const verificationCodeDisplay = document.getElementById('verification-code-display');
-            const verifyButton = document.getElementById('verify-button');
-            const verificationInput = document.getElementById('verification-input');
-
-
-            verificationCodeDisplay.textContent = verificationCode;  // Display
-            modal.style.display = 'block'; // Show the modal
-
-
-            verifyButton.onclick = async () => {
-                const enteredCode = verificationInput.value.trim();
-                if (enteredCode === verificationCode) {
-                    // Correct code, send to server
-                    try {
-                        const formData = new FormData();
-                        formData.append('email', email); // Send email for server-side verification
-                        const response = await fetch('/verify', {  //  Endpoint
-                            method: 'POST',
-                            body: formData,
-                        });
-                        const data = await response.json();
-                        if (response.ok) {
-                            showMessage('success', data.message);
-                            modal.style.display = 'none'; // Hide modal
-                            window.location.href = '/dashboard'; //redirect
-                        } else {
-                            showMessage('error', data.error);
-                            modal.style.display = 'none';
-                        }
-
-                    } catch (error) {
-                        showMessage('error', 'An error occurred during verification.');
-                        console.error('Verification Error:', error);
-                    }
-
-                } else {
-                    showMessage('error', 'Invalid verification code. Please try again.');
-                }
-            };
-        }
-    </script>
+    <title>Log In</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f4f4f4;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: column;
-    }
-
-    .container {
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        width: 400px;
-        max-width: 100%;
-        box-sizing: border-box;
-    }
-
-    h2 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    .form-group {
-        margin-bottom: 15px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 5px;
-        color: #555;
-        font-size: 14px;
-    }
-
-    .form-group input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-sizing: border-box;
-        font-size: 14px;
-    }
-
-    .form-group button {
-        width: 100%;
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease;
-        margin-top: 10px;
-    }
-
-    .form-group button:hover {
-        background-color: #45a049;
-    }
-
-    #message-container {
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .message {
-        padding: 10px;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-
-    .message.success {
-        background-color: #d4edda;
-        color: #155724;
-        border: 1px solid #c3e6cb;
-    }
-
-    .message.error {
-        background-color: #f8d7da;
-        color: #721c24;
-        border: 1px solid #f5c6cb;
-    }
-    #verification-modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 0;
-        top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scrolling if needed */
-        background-color: rgba(0,0,0,0.4); /* Black with opacity */
-        justify-content: center;
-        align-items: center;
-    }
-
-    #verification-modal-content {
-        background-color: #fefefe;
-        margin: 10% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        border-radius: 8px;
-        width: 300px;
-        position: relative;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    #verification-code-display {
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        text-align: center;
-        color: #1c7ed6;
-    }
-
-    #verification-input {
-        width: 100%;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        box-sizing: border-box;
-        margin-bottom: 20px;
-        font-size: 14px;
-    }
-
-    #verify-button {
-        background-color: #2196F3;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 16px;
-        transition: background-color 0.3s ease;
-        width: 100%;
-    }
-
-    #verify-button:hover {
-        background-color: #0b7dda;
-    }
-    .form-group .error-message {
-        color: red;
-        font-size: 12px;
-        margin-top: 5px;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h2>Sign Up</h2>
-        <form id="sign-up-form">
-            <div class="form-group">
-                <label for="sign-up-username">Username:</label>
-                <input type="text" id="sign-up-username" name="username" placeholder="Enter your username">
-            </div>
-            <div class="form-group">
-                <label for="sign-up-email">Email:</label>
-                <input type="email" id="sign-up-email" name="email" placeholder="Enter your email">
-            </div>
-            <div class="form-group">
-                <label for="sign-up-password">Password:</label>
-                <input type="password" id="sign-up-password" name="password" placeholder="Enter your password">
-            </div>
-            <div class="form-group">
-                <button type="button" onclick="signUp()">Sign Up</button>
-            </div>
-        </form>
-
-        <h2>Login</h2>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="login-username">Username:</label>
-                <input type="text" id="login-username" name="username" placeholder="Enter your username">
-            </div>
-            <div class="form-group">
-                <label for="login-password">Password:</label>
-                <input type="password" id="login-password" name="password" placeholder="Enter your password">
-            </div>
-            <div class="form-group">
-                <button type="button" onclick="login()">Login</button>
-            </div>
-        </form>
-
-        <div id="message-container"></div>
+<body class="bg-gradient-to-r from-yellow-100 to-white flex justify-center items-center min-h-screen p-4">
+    <div class="w-full bg-gradient-to-r from-yellow-200 to-amber-200 text-gray-700 text-center py-2 px-4 rounded-b-md shadow-md mb-6 fixed top-0 left-0 z-10">
+        <strong class="font-semibold">Important Announcement:</strong> Server access is for authorized personnel only!
     </div>
 
-    <div id="verification-modal">
-        <div id="verification-modal-content">
-            <h2>Verify Your Email</h2>
-            <p>Enter the verification code sent to your email:</p>
-            <p id="verification-code-display"></p>
-            <input type="text" id="verification-input" placeholder="Enter verification code">
-            <button id="verify-button">Verify</button>
-        </div>
+    <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md transition-transform hover:scale-105" style="margin-top: 4rem;">
+        <h1 class="text-2xl font-semibold text-yellow-600 text-center mb-6">Log In To Server</h1>
+
+        <form id="logInForm" class="space-y-4">
+            <div>
+                <label for="loginUsername" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
+                <input type="text" id="loginUsername" name="loginUsername" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-semibold" placeholder="Username" required>
+                 <div id="login-username-error" class="text-red-500 text-xs italic" style="display: none;"></div>
+            </div>
+            <div>
+                <label for="loginPassword" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                <input type="password" id="loginPassword" name="loginPassword" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-semibold" placeholder="Password" required>
+                <div id="login-password-error" class="text-red-500 text-xs italic" style="display: none;"></div>
+            </div>
+            <button type="submit" class="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Log In</button>
+            <div id="login-error" class="text-red-600 text-center font-semibold" style="display: none;"></div>
+            <div id="login-success" class="text-green-600 text-center font-semibold" style="display: none;"></div>
+        </form>
     </div>
+
+    <script>
+        const logInForm = document.getElementById('logInForm');
+        const logInError = document.getElementById('login-error');
+        const logInSuccess = document.getElementById('login-success');
+
+        // Get the error message elements for login form
+        const loginUsernameError = document.getElementById('login-username-error');
+        const loginPasswordError = document.getElementById('login-password-error');
+
+
+        // Function to validate email format
+        function validateEmail(email) {
+            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+
+        // Function to validate the log in form
+        function validateLoginForm() {
+            let isValid = true;
+
+            // Reset error messages
+            loginUsernameError.style.display = 'none';
+            loginPasswordError.style.display = 'none';
+            logInError.style.display = 'none';
+
+            const username = logInForm.loginUsername.value.trim();
+            const password = logInForm.loginPassword.value.trim();
+
+            if (!username) {
+                loginUsernameError.textContent = 'Username is required';
+                loginUsernameError.style.display = 'block';
+                isValid = false;
+            }
+
+            if (!password) {
+                loginPasswordError.textContent = 'Password is required';
+                loginPasswordError.style.display = 'block';
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        // Event listener for log in form submission
+        logInForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            if (validateLoginForm()) {
+                // Simulate a successful log-in
+                if (logInForm.loginUsername.value === "admin" && logInForm.loginPassword.value === "admin") {
+                    logInSuccess.textContent = 'Log in successful!';
+                    logInSuccess.style.display = 'block';
+                    logInError.style.display = 'none';
+                    // Clear the form
+                    logInForm.reset();
+                     setTimeout(() => {
+                        logInSuccess.style.display = 'none';
+                    }, 3000);
+                } else {
+                    logInError.textContent = 'Invalid credentials. Please try again.';
+                    logInError.style.display = 'block';
+                    logInSuccess.style.display = 'none';
+                }
+
+            }
+        });
+
+    </script>
 </body>
 </html>
