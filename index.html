@@ -10,6 +10,38 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
+        /* Additional styles for transition */
+        #logInForm {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        #discordLogo {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+            display: none; /* Initially hide the logo */
+            margin-top: 2rem; /* Add some margin above the logo */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .login-success #logInForm {
+            opacity: 0;
+            transform: translateY(-20px);
+            display: none; /* Hide the form after successful login */
+        }
+
+        .login-success #discordLogo {
+            opacity: 1;
+            transform: scale(1);
+            display: block; /* Show the logo after successful login */
+        }
+
+        .login-success h1{
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-gradient-to-r from-yellow-100 to-white flex justify-center items-center min-h-screen p-4">
@@ -35,12 +67,18 @@
             <div id="login-error" class="text-red-600 text-center font-semibold" style="display: none;"></div>
             <div id="login-success" class="text-green-600 text-center font-semibold" style="display: none;"></div>
         </form>
+
+        <img id="discordLogo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" alt="Discord Logo" class="w-32 mx-auto">
     </div>
 
     <script>
         const logInForm = document.getElementById('logInForm');
         const logInError = document.getElementById('login-error');
         const logInSuccess = document.getElementById('login-success');
+        const body = document.querySelector('body');
+        const logInTitle = document.querySelector('h1');
+        const discordLogo = document.getElementById('discordLogo');
+
 
         // Get the error message elements for login form
         const loginUsernameError = document.getElementById('login-username-error');
@@ -91,17 +129,23 @@
                     logInSuccess.textContent = 'Log in successful!';
                     logInSuccess.style.display = 'block';
                     logInError.style.display = 'none';
+                    // Add the class to trigger the transition
+                    body.classList.add('login-success');
+                    discordLogo.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Discord_Logo_%282021%29.svg/2048px-Discord_Logo_%282021%29.svg.png";
+
                     // Clear the form
-                    logInForm.reset();
-                     setTimeout(() => {
+                    setTimeout(() => {
+                        logInForm.reset();
                         logInSuccess.style.display = 'none';
+                         body.classList.remove('login-success'); // remove class
+                         discordLogo.src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=";
                     }, 3000);
+
                 } else {
                     logInError.textContent = 'Invalid credentials. Please try again.';
                     logInError.style.display = 'block';
                     logInSuccess.style.display = 'none';
                 }
-
             }
         });
 
