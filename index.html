@@ -3,195 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>Un-Blocked Mine-craft</title>
+    <!-- Tailwind CSS CDN for easy styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Custom styles to ensure Inter font is used and overall layout */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: "Inter", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+            background-color: #f0f4f8; /* Light background */
+            padding: 1rem; /* Add some padding on smaller screens */
+            margin: 0; /* Remove default body margin */
+            width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        /* Main content container for responsive centering */
+        .main-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem; /* Equivalent to gap-6 */
+            padding: 1rem; /* Equivalent to p-4 */
+            width: 100%;
+            max-width: 900px; /* Adjust max-width as needed */
+            box-sizing: border-box; /* Include padding in width */
+        }
+        @media (min-width: 768px) { /* md breakpoint */
+            .main-content-wrapper {
+                padding: 2rem; /* Equivalent to md:p-8 */
+            }
         }
 
-        /* Additional styles for transition */
-        #logInForm {
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-        }
-
-        #adminText {
-            opacity: 0;
-            transform: scale(0.5);
-            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-            display: none; /* Initially hide the text */
-            margin-top: 2rem; /* Add some margin above the text */
-            margin-left: auto;
-            margin-right: auto;
-            font-size: 2rem;
-            color: #f5f5f5;
+        /* Styles for the homepage section */
+        .homepage-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Takes full viewport height */
+            width: 100%;
             text-align: center;
         }
 
-        .login-success #logInForm {
-            opacity: 0;
-            transform: translateY(-20px);
-            display: none; /* Hide the form after successful login */
+        /* Make the iframe responsive to maintain aspect ratio, but also allow full width */
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px; /* Max width for larger screens */
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio (height / width * 100) */
+            background-color: #000; /* Black background for potential letterboxing */
+            border-radius: 0.75rem; /* Rounded corners */
+            overflow: hidden; /* Hide overflow */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Subtle shadow */
         }
-
-        .login-success #adminText {
-            opacity: 1;
-            transform: scale(1);
-            display: block; /* Show the text after successful login */
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
-
-        .login-success h1{
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
+        /* Styles for the message box, replacing alert() */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none; /* Hidden by default */
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            max-width: 80%;
+            text-align: center;
         }
-
-
-
-        #logOutButton {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-            margin-top: 1rem;
-            display: none;
-            margin-left: auto;
-            margin-right: auto;
+        .message-box button {
+            background-color: #4f46e5;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.2s;
         }
-
-        .login-success #logOutButton{
-            opacity: 1;
-            display: block;
-            background-image: linear-gradient(to bottom right, #facc15, #d4d400); /* Gold gradient */
-            color: #ffffff; /* White text */
-            border: none; /* Remove the border */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+        .message-box button:hover {
+            background-color: #4338ca;
         }
-        .login-success #logOutButton:hover {
-             background-image: linear-gradient(to bottom right, #fde047, #f7c948);
-        }
-
     </style>
 </head>
-<body class="bg-gradient-to-r from-yellow-100 to-white flex justify-center items-center min-h-screen p-4">
-    <div class="w-full bg-gradient-to-r from-yellow-200 to-amber-200 text-gray-700 text-center py-2 px-4 rounded-b-md shadow-md mb-6 fixed top-0 left-0 z-10">
-        <strong class="font-semibold">Important Announcement:</strong> Produced By Darren not Benyameen!
+<body>
+    <div id="homepage" class="homepage-container">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-8">Welcome to Eaglercraft!</h1>
+        <button id="playButton"
+            class="px-10 py-5 bg-green-500 text-white font-bold text-xl rounded-full shadow-lg hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300 transition duration-300 ease-in-out transform hover:scale-105">
+            Play Minecraft
+        </button>
     </div>
 
-    <div class="bg-white rounded-lg shadow-xl p-8 w-full max-w-md transition-transform hover:scale-105" style="margin-top: 4rem;">
-        <h1 class="text-2xl font-semibold text-yellow-600 text-center mb-6">Log In To Server</h1>
+    <div id="gameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Eaglercraft</h1>
 
-        <form id="logInForm" class="space-y-4">
-            <div>
-                <label for="loginUsername" class="block text-gray-700 text-sm font-bold mb-2">Username</label>
-                <input type="text" id="loginUsername" name="loginUsername" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-semibold" placeholder="Username" required>
-                <div id="login-username-error" class="text-red-500 text-xs italic" style="display: none;"></div>
-            </div>
-            <div>
-                <label for="loginPassword" class="block text-gray-700 text-sm font-bold mb-2">Password</label>
-                <input type="password" id="loginPassword" name="loginPassword" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline font-semibold" placeholder="Password" required>
-                <div id="login-password-error" class="text-red-500 text-xs italic" style="display: none;"></div>
-            </div>
-            <button type="submit" class="bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full">Log In</button>
-            <div id="login-error" class="text-red-600 text-center font-semibold" style="display: none;"></div>
-            <div id="login-success" class="text-green-600 text-center font-semibold" style="display: none;"></div>
-        </form>
+        <div class="iframe-container">
+            <!-- The Eaglercraft game iframe -->
+            <iframe id="eaglercraftIframe" src="https://eaglercraft.com/mc/1.12.2/" allowfullscreen></iframe>
+        </div>
 
-        <div id="adminText" style="color: red; font-weight: bold; font-family: Arial;">Your code is: <span id="generatedCode"></span></div>
-        <button id="logOutButton" class = "bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Log Out</button>
+        <!-- Fullscreen button -->
+        <button id="fullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <!-- Message Box Element -->
+    <div id="messageBox" class="message-box">
+        <p id="messageContent" class="text-gray-700"></p>
+        <button id="messageBoxClose">OK</button>
     </div>
 
     <script>
-        const logInForm = document.getElementById('logInForm');
-        const logInError = document.getElementById('login-error');
-        const logInSuccess = document.getElementById('login-success');
-        const body = document.querySelector('body');
-        const logInTitle = document.querySelector('h1');
-        const adminText = document.getElementById('adminText');
-        const logOutButton = document.getElementById('logOutButton');
-        const generatedCodeDisplay = document.getElementById('generatedCode');
-        let generatedCode = ""; // Store the generated code
-
-
-        // Get the error message elements for login form
-        const loginUsernameError = document.getElementById('login-username-error');
-        const loginPasswordError = document.getElementById('login-password-error');
-
-
-        // Function to validate email format
-        function validateEmail(email) {
-            const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-            return re.test(String(email).toLowerCase());
+        // Function to show the custom message box
+        function showMessageBox(message) {
+            const messageBox = document.getElementById('messageBox');
+            const messageContent = document.getElementById('messageContent');
+            messageContent.textContent = message;
+            messageBox.style.display = 'flex';
         }
 
-
-        // Function to validate the log in form
-        function validateLoginForm() {
-            let isValid = true;
-
-            // Reset error messages
-            loginUsernameError.style.display = 'none';
-            loginPasswordError.style.display = 'none';
-            logInError.style.display = 'none';
-
-            const username = logInForm.loginUsername.value.trim();
-            const password = logInForm.loginPassword.value.trim();
-
-            if (!username) {
-                loginUsernameError.textContent = 'Username is required';
-                loginUsernameError.style.display = 'block';
-                isValid = false;
-            }
-
-            if (!password) {
-                loginPasswordError.textContent = 'Password is required';
-                loginPasswordError.style.display = 'block';
-                isValid = false;
-            }
-            return isValid; //return the isvalid
+        // Function to hide the custom message box
+        function hideMessageBox() {
+            document.getElementById('messageBox').style.display = 'none';
         }
 
-        // Function to generate a random 6-character code with letters and numbers
-        function generateRandomCode() {
-            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let code = '';
-            for (let i = 0; i < 6; i++) {
-                code += characters.charAt(Math.floor(Math.random() * characters.length));
-            }
-            return code;
-        }
+        // Event listener for the message box close button
+        document.getElementById('messageBoxClose').addEventListener('click', hideMessageBox);
 
-        // Event listener for log in form submission
-        logInForm.addEventListener('submit', (event) => {
-            event.preventDefault();
 
-            if (validateLoginForm()) {
-                // Simulate a successful log-in
-                if (logInForm.loginUsername.value === "admin" && logInForm.loginPassword.value === "admin") {
-                    logInSuccess.textContent = 'Log in successful!';
-                    logInSuccess.style.display = 'block';
-                    logInError.style.display = 'none';
-                    // Add the class to trigger the transition
-                    body.classList.add('login-success');
-                    adminText.style.display = 'block';
-                    logInTitle.textContent = "Logged In"; // Change the heading
-                    logInTitle.style.opacity = 1;
+        document.addEventListener('DOMContentLoaded', () => {
+            const playButton = document.getElementById('playButton');
+            const homepage = document.getElementById('homepage');
+            const gameContainer = document.getElementById('gameContainer');
+            const iframe = document.getElementById('eaglercraftIframe');
+            const fullscreenButton = document.getElementById('fullscreenButton');
 
-                    // Generate and display the random code
-                    generatedCode = generateRandomCode(); // Store the code
-                    generatedCodeDisplay.textContent = generatedCode;
+            // Event listener for the "Play Minecraft" button
+            playButton.addEventListener('click', () => {
+                homepage.classList.add('hidden'); // Hide the homepage
+                gameContainer.classList.remove('hidden'); // Show the game container
+            });
 
+            // Event listener for the fullscreen button click
+            fullscreenButton.addEventListener('click', () => {
+                // Request fullscreen for the iframe element
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) { /* Firefox */
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) { /* IE/Edge */
+                    iframe.msRequestFullscreen();
                 } else {
-                    logInError.textContent = 'Invalid credentials. Please try again.';
-                    logInError.style.display = 'block';
-                    logInSuccess.style.display = 'none';
+                    // Fallback for browsers that do not support fullscreen API
+                    showMessageBox("Your browser does not support the Fullscreen API for iframes.");
                 }
-            }
-        });
+            });
 
-        logOutButton.addEventListener('click', () => {
-            // Refresh the page
-            window.location.reload();
-        });
+            // Optional: Listen for fullscreen change events to update UI if needed
+            document.addEventListener('fullscreenchange', (event) => {
+                // You could, for example, hide the button when fullscreen, show when not
+                if (document.fullscreenElement) {
+                    console.log('Entered fullscreen mode.');
+                    // fullscreenButton.style.display = 'none'; // Example: hide button
+                } else {
+                    console.log('Exited fullscreen mode.');
+                    // fullscreenButton.style.display = 'block'; // Example: show button
+                }
+            });
 
+            document.addEventListener('mozfullscreenchange', (event) => {
+                if (document.mozFullScreenElement) {
+                    console.log('Entered fullscreen mode (Firefox).');
+                } else {
+                    console.log('Exited fullscreen mode (Firefox).');
+                }
+            });
+
+            document.addEventListener('webkitfullscreenchange', (event) => {
+                if (document.webkitFullscreenElement) {
+                    console.log('Entered fullscreen mode (Webkit).');
+                } else {
+                    console.log('Exited fullscreen mode (Webkit).');
+                }
+            });
+
+            document.addEventListener('msfullscreenchange', (event) => {
+                if (document.msFullscreenElement) {
+                    console.log('Entered fullscreen mode (MS).');
+                } else {
+                    console.log('Exited fullscreen mode (MS).');
+                }
+            });
+        });
     </script>
 </body>
 </html>
