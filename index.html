@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Un-Blocked Mine-craft</title>
+    <title>Un-Blocked Games</title>
     <!-- Tailwind CSS CDN for easy styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -106,22 +106,156 @@
     <div id="homepage" class="homepage-container">
         <h1 class="text-4xl font-extrabold text-gray-900 mb-8">Welcome to ItsJustMaths ;)!</h1>
         <h1 class="text-4xl font-extrabold text-gray-700 mb-8">-made by haz-</h1>
-        <button id="playButton"
+        <button id="playMinecraftButton"
             class="px-10 py-5 bg-green-500 text-white font-bold text-xl rounded-full shadow-lg hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300 transition duration-300 ease-in-out transform hover:scale-105">
             Play Minecraft
         </button>
+        <button id="playGrannyButton"
+            class="mt-4 px-10 py-5 bg-purple-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-purple-700 focus:outline-none focus:ring-4 focus:ring-purple-300 transition duration-300 ease-in-out transform hover:scale-105">
+            Granny Chapter 1
+        </button>
+        <button id="playBitLifeButton"
+            class="mt-4 px-10 py-5 bg-blue-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition duration-300 ease-in-out transform hover:scale-105">
+            Bit Life
+        </button>
+        <button id="playSlopeButton"
+            class="mt-4 px-10 py-5 bg-red-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-red-300 transition duration-300 ease-in-out transform hover:scale-105">
+            Slope
+        </button>
+        <button id="playBedWarsButton"
+            class="mt-4 px-10 py-5 bg-yellow-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-yellow-700 focus:outline-none focus:ring-4 focus:ring-yellow-300 transition duration-300 ease-in-out transform hover:scale-105">
+            Bed Wars
+        </button>
+        <button id="playSuperheroLeagueButton"
+            class="mt-4 px-10 py-5 bg-teal-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-300 transition duration-300 ease-in-out transform hover:scale-105">
+            The Superhero League
+        </button>
+        <button id="playShortLifeButton"
+            class="mt-4 px-10 py-5 bg-orange-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-orange-700 focus:outline-none focus:ring-4 focus:ring-orange-300 transition duration-300 ease-in-out transform hover:scale-105">
+            Short Life
+        </button>
+        <button id="playTrafficJam3DButton"
+            class="mt-4 px-10 py-5 bg-pink-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-pink-700 focus:outline-none focus:ring-4 focus:ring-pink-300 transition duration-300 ease-in-out transform hover:scale-105">
+            Traffic Jam 3D
+        </button>
+        <button id="playGeometryVibesButton"
+            class="mt-4 px-10 py-5 bg-indigo-600 text-white font-bold text-xl rounded-full shadow-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300 transition duration-300 ease-in-out transform hover:scale-105">
+            Geometry Vibes
+        </button>
     </div>
 
-    <div id="gameContainer" class="main-content-wrapper hidden">
+    <div id="minecraftGameContainer" class="main-content-wrapper hidden">
         <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Eaglercraft</h1>
-
         <div class="iframe-container">
             <!-- The Eaglercraft game iframe -->
-            <iframe id="eaglercraftIframe" src="https://eaglercraft.com/mc/1.12.2/" allowfullscreen></iframe>
+            <iframe id="minecraftIframe" src="https://eaglercraft.com/mc/1.12.2/" allowfullscreen></iframe>
         </div>
-
         <!-- Fullscreen button -->
-        <button id="fullscreenButton"
+        <button id="minecraftFullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <div id="grannyGameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Granny Chapter 1</h1>
+        <div class="iframe-container">
+            <!-- The Granny game iframe -->
+            <iframe id="grannyIframe" src="https://www.hahagames.com/embed/granny" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+        </div>
+        <!-- Fullscreen button for Granny -->
+        <button id="grannyFullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <div id="bitLifeGameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Bit Life</h1>
+        <div class="iframe-container">
+            <!-- The Bit Life game iframe -->
+            <iframe id="bitLifeIframe" src="https://www.hahagames.com/embed/e-life-simulator" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+        </div>
+        <!-- Fullscreen button for Bit Life -->
+        <button id="bitLifeFullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <div id="slopeGameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Slope</h1>
+        <div class="iframe-container">
+            <!-- The Slope game iframe -->
+            <iframe id="slopeIframe" src="https://www.hahagames.com/embed/slope" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+        </div>
+        <!-- Fullscreen button for Slope -->
+        <button id="slopeFullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <div id="bedWarsGameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Bed Wars</h1>
+        <div class="iframe-container">
+            <!-- The Bed Wars game iframe -->
+            <iframe id="bedWarsIframe" src="https://www.hahagames.com/embed/bed-wars" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+        </div>
+        <!-- Fullscreen button for Bed Wars -->
+        <button id="bedWarsFullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <div id="superheroLeagueGameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">The Superhero League</h1>
+        <div class="iframe-container">
+            <!-- The Superhero League game iframe -->
+            <iframe id="superheroLeagueIframe" src="https://www.hahagames.com/embed/the-superhero-league" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+        </div>
+        <!-- Fullscreen button for The Superhero League -->
+        <button id="superheroLeagueFullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <div id="shortLifeGameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Short Life</h1>
+        <div class="iframe-container">
+            <!-- The Short Life game iframe -->
+            <iframe id="shortLifeIframe" src="https://www.hahagames.com/embed/short-life" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+        </div>
+        <!-- Fullscreen button for Short Life -->
+        <button id="shortLifeFullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <div id="trafficJam3DGameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Traffic Jam 3D</h1>
+        <div class="iframe-container">
+            <!-- The Traffic Jam 3D game iframe -->
+            <iframe id="trafficJam3DIframe" src="https://www.hahagames.com/embed/traffic-jam-3d" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+        </div>
+        <!-- Fullscreen button for Traffic Jam 3D -->
+        <button id="trafficJam3DFullscreenButton"
+            class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+            Go Fullscreen
+        </button>
+    </div>
+
+    <div id="geometryVibesGameContainer" class="main-content-wrapper hidden">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4 text-center">Geometry Vibes</h1>
+        <div class="iframe-container">
+            <!-- The Geometry Vibes game iframe -->
+            <iframe id="geometryVibesIframe" src="https://www.hahagames.com/embed/geometry-vibes" style="width: 100%; height: 100%;" frameborder="0" allow="gamepad *;"></iframe>
+        </div>
+        <!-- Fullscreen button for Geometry Vibes -->
+        <button id="geometryVibesFullscreenButton"
             class="mt-6 px-8 py-3 bg-indigo-600 text-white font-semibold rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
             Go Fullscreen
         </button>
@@ -150,71 +284,192 @@
         // Event listener for the message box close button
         document.getElementById('messageBoxClose').addEventListener('click', hideMessageBox);
 
-
         document.addEventListener('DOMContentLoaded', () => {
-            const playButton = document.getElementById('playButton');
             const homepage = document.getElementById('homepage');
-            const gameContainer = document.getElementById('gameContainer');
-            const iframe = document.getElementById('eaglercraftIframe');
-            const fullscreenButton = document.getElementById('fullscreenButton');
+            const playMinecraftButton = document.getElementById('playMinecraftButton');
+            const playGrannyButton = document.getElementById('playGrannyButton');
+            const playBitLifeButton = document.getElementById('playBitLifeButton');
+            const playSlopeButton = document.getElementById('playSlopeButton');
+            const playBedWarsButton = document.getElementById('playBedWarsButton');
+            const playSuperheroLeagueButton = document.getElementById('playSuperheroLeagueButton');
+            const playShortLifeButton = document.getElementById('playShortLifeButton');
+            const playTrafficJam3DButton = document.getElementById('playTrafficJam3DButton');
+            const playGeometryVibesButton = document.getElementById('playGeometryVibesButton'); // New Geometry Vibes button
 
-            // Event listener for the "Play Minecraft" button
-            playButton.addEventListener('click', () => {
-                homepage.classList.add('hidden'); // Hide the homepage
-                gameContainer.classList.remove('hidden'); // Show the game container
-            });
+            const minecraftGameContainer = document.getElementById('minecraftGameContainer');
+            const minecraftIframe = document.getElementById('minecraftIframe');
+            const minecraftFullscreenButton = document.getElementById('minecraftFullscreenButton');
 
-            // Event listener for the fullscreen button click
-            fullscreenButton.addEventListener('click', () => {
-                // Request fullscreen for the iframe element
-                if (iframe.requestFullscreen) {
-                    iframe.requestFullscreen();
-                } else if (iframe.mozRequestFullScreen) { /* Firefox */
-                    iframe.mozRequestFullScreen();
-                } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
-                    iframe.webkitRequestFullscreen();
-                } else if (iframe.msRequestFullscreen) { /* IE/Edge */
-                    iframe.msRequestFullscreen();
+            const grannyGameContainer = document.getElementById('grannyGameContainer');
+            const grannyIframe = document = document.getElementById('grannyIframe');
+            const grannyFullscreenButton = document.getElementById('grannyFullscreenButton');
+
+            const bitLifeGameContainer = document.getElementById('bitLifeGameContainer');
+            const bitLifeIframe = document.getElementById('bitLifeIframe');
+            const bitLifeFullscreenButton = document.getElementById('bitLifeFullscreenButton');
+
+            const slopeGameContainer = document.getElementById('slopeGameContainer');
+            const slopeIframe = document.getElementById('slopeIframe');
+            const slopeFullscreenButton = document.getElementById('slopeFullscreenButton');
+
+            const bedWarsGameContainer = document.getElementById('bedWarsGameContainer');
+            const bedWarsIframe = document.getElementById('bedWarsIframe');
+            const bedWarsFullscreenButton = document.getElementById('bedWarsFullscreenButton');
+
+            const superheroLeagueGameContainer = document.getElementById('superheroLeagueGameContainer');
+            const superheroLeagueIframe = document.getElementById('superheroLeagueIframe');
+            const superheroLeagueFullscreenButton = document.getElementById('superheroLeagueFullscreenButton');
+
+            const shortLifeGameContainer = document.getElementById('shortLifeGameContainer');
+            const shortLifeIframe = document.getElementById('shortLifeIframe');
+            const shortLifeFullscreenButton = document.getElementById('shortLifeFullscreenButton');
+
+            const trafficJam3DGameContainer = document.getElementById('trafficJam3DGameContainer');
+            const trafficJam3DIframe = document.getElementById('trafficJam3DIframe');
+            const trafficJam3DFullscreenButton = document.getElementById('trafficJam3DFullscreenButton');
+
+            const geometryVibesGameContainer = document.getElementById('geometryVibesGameContainer'); // New Geometry Vibes container
+            const geometryVibesIframe = document.getElementById('geometryVibesIframe'); // New Geometry Vibes iframe
+            const geometryVibesFullscreenButton = document.getElementById('geometryVibesFullscreenButton'); // New Geometry Vibes fullscreen button
+
+
+            // Function to hide all game containers and show the selected one
+            function showGameContainer(containerToShowId) {
+                homepage.classList.add('hidden'); // Always hide homepage
+
+                // Hide all potential game containers
+                minecraftGameContainer.classList.add('hidden');
+                grannyGameContainer.classList.add('hidden');
+                bitLifeGameContainer.classList.add('hidden');
+                slopeGameContainer.classList.add('hidden');
+                bedWarsGameContainer.classList.add('hidden');
+                superheroLeagueGameContainer.classList.add('hidden');
+                shortLifeGameContainer.classList.add('hidden');
+                trafficJam3DGameContainer.classList.add('hidden');
+                geometryVibesGameContainer.classList.add('hidden'); // Hide Geometry Vibes container
+
+                // Show the selected game container
+                document.getElementById(containerToShowId).classList.remove('hidden');
+            }
+
+            // Function to handle fullscreen for a given iframe
+            function requestFullscreenForIframe(iframeElement) {
+                if (iframeElement.requestFullscreen) {
+                    iframeElement.requestFullscreen();
+                } else if (iframeElement.mozRequestFullScreen) { /* Firefox */
+                    iframeElement.mozRequestFullScreen();
+                } else if (iframeElement.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+                    iframeElement.webkitRequestFullscreen();
+                } else if (iframeElement.msRequestFullscreen) { /* IE/Edge */
+                    iframeElement.msRequestFullscreen();
                 } else {
-                    // Fallback for browsers that do not support fullscreen API
                     showMessageBox("Your browser does not support the Fullscreen API for iframes.");
                 }
+            }
+
+            // Event listener for the "Play Minecraft" button
+            playMinecraftButton.addEventListener('click', () => {
+                showGameContainer('minecraftGameContainer');
+            });
+
+            // Event listener for the "Granny Chapter 1" button
+            playGrannyButton.addEventListener('click', () => {
+                showGameContainer('grannyGameContainer');
+            });
+
+            // Event listener for the "Bit Life" button
+            playBitLifeButton.addEventListener('click', () => {
+                showGameContainer('bitLifeGameContainer');
+            });
+
+            // Event listener for the "Slope" button
+            playSlopeButton.addEventListener('click', () => {
+                showGameContainer('slopeGameContainer');
+            });
+
+            // Event listener for the "Bed Wars" button
+            playBedWarsButton.addEventListener('click', () => {
+                showGameContainer('bedWarsGameContainer');
+            });
+
+            // Event listener for the "The Superhero League" button
+            playSuperheroLeagueButton.addEventListener('click', () => {
+                showGameContainer('superheroLeagueGameContainer');
+            });
+
+            // Event listener for the "Short Life" button
+            playShortLifeButton.addEventListener('click', () => {
+                showGameContainer('shortLifeGameContainer');
+            });
+
+            // Event listener for the "Traffic Jam 3D" button
+            playTrafficJam3DButton.addEventListener('click', () => {
+                showGameContainer('trafficJam3DGameContainer');
+            });
+
+            // Event listener for the "Geometry Vibes" button
+            playGeometryVibesButton.addEventListener('click', () => {
+                showGameContainer('geometryVibesGameContainer');
+            });
+
+
+            // Event listener for the Minecraft fullscreen button
+            minecraftFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(minecraftIframe);
+            });
+
+            // Event listener for the Granny fullscreen button
+            grannyFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(grannyIframe);
+            });
+
+            // Event listener for the Bit Life fullscreen button
+            bitLifeFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(bitLifeIframe);
+            });
+
+            // Event listener for the Slope fullscreen button
+            slopeFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(slopeIframe);
+            });
+
+            // Event listener for the Bed Wars fullscreen button
+            bedWarsFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(bedWarsIframe);
+            });
+
+            // Event listener for The Superhero League fullscreen button
+            superheroLeagueFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(superheroLeagueIframe);
+            });
+
+            // Event listener for the Short Life fullscreen button
+            shortLifeFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(shortLifeIframe);
+            });
+
+            // Event listener for the Traffic Jam 3D fullscreen button
+            trafficJam3DFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(trafficJam3DIframe);
+            });
+
+            // Event listener for the Geometry Vibes fullscreen button
+            geometryVibesFullscreenButton.addEventListener('click', () => {
+                requestFullscreenForIframe(geometryVibesIframe);
             });
 
             // Optional: Listen for fullscreen change events to update UI if needed
             document.addEventListener('fullscreenchange', (event) => {
-                // You could, for example, hide the button when fullscreen, show when not
-                if (document.fullscreenElement) {
-                    console.log('Entered fullscreen mode.');
-                    // fullscreenButton.style.display = 'none'; // Example: hide button
-                } else {
-                    console.log('Exited fullscreen mode.');
-                    // fullscreenButton.style.display = 'block'; // Example: show button
-                }
+                console.log('Fullscreen changed.');
             });
-
             document.addEventListener('mozfullscreenchange', (event) => {
-                if (document.mozFullScreenElement) {
-                    console.log('Entered fullscreen mode (Firefox).');
-                } else {
-                    console.log('Exited fullscreen mode (Firefox).');
-                }
+                console.log('Fullscreen changed (Firefox).');
             });
-
             document.addEventListener('webkitfullscreenchange', (event) => {
-                if (document.webkitFullscreenElement) {
-                    console.log('Entered fullscreen mode (Webkit).');
-                } else {
-                    console.log('Exited fullscreen mode (Webkit).');
-                }
+                console.log('Fullscreen changed (Webkit).');
             });
-
             document.addEventListener('msfullscreenchange', (event) => {
-                if (document.msFullscreenElement) {
-                    console.log('Entered fullscreen mode (MS).');
-                } else {
-                    console.log('Exited fullscreen mode (MS).');
-                }
+                console.log('Fullscreen changed (MS).');
             });
         });
     </script>
