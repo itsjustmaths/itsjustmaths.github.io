@@ -3,41 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reCaptcha</title>
-    <!-- Tailwind CSS CDN for easy styling -->
+    <title>Embedded Movie</title>
+    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* Custom styles to ensure Inter font and overall responsiveness */
+        /* Apply Inter font and basic body styling */
         body {
             font-family: 'Inter', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0; /* Light background for contrast */
-            padding: 20px; /* Add some padding on smaller screens */
-            box-sizing: border-box; /* Include padding in element's total width and height */
+            background-color: #f0f2f5; /* Light gray background */
         }
     </style>
 </head>
-<body class="bg-gray-100 p-4">
-    <div class="max-w-md w-full bg-white rounded-lg shadow-lg p-6 text-center">
-        <h1 class="text-2xl md:text-3xl font-bold text-gray-800 mb-6">Captcha </h1>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="container mx-auto bg-white rounded-lg shadow-xl p-6 md:p-8 max-w-4xl w-full">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Your Embedded Movie</h1>
 
-        <!-- The anchor tag (<a>) makes the image a link -->
-        <!-- The image (<img>) is nested inside the anchor tag -->
-        <a href="https://shrekis.life/news.php?v=KN62DQ" target="_blank" rel="noopener noreferrer"
-           class="inline-block transition-transform transform hover:scale-105 duration-300 ease-in-out
-                  focus:outline-none focus:ring-4 focus:ring-blue-300 rounded-lg">
-            <img src="https://miro.medium.com/v2/resize:fit:750/format:webp/1*O0hPhfithgkGiY-mm_ON0Q.png"
-                 alt="A placeholder image that is a link"
-                 class="w-full h-auto rounded-lg shadow-md border-4 border-transparent
-                        group-hover:border-blue-500 transition-colors duration-300"
-                 onerror="this.onerror=null;this.src='https://placehold.co/256x256/FF0000/FFFFFF?text=Image+Load+Error';">
-        </a>
+        <!-- Embedded video player -->
+        <!-- The iframe loads the movie from the specified URL -->
+        <div class="relative pt-[56.25%]"> <!-- This creates a 16:9 aspect ratio container -->
+            <iframe
+                src="https://embed.su/embed/movie/950387"
+                class="absolute top-0 left-0 w-full h-full rounded-lg"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+            ></iframe>
+        </div>
 
-        <p class="mt-6 text-gray-600 text-sm md:text-base">
-            Clicking start to begin Captcha.
+        <p class="mt-8 text-center text-gray-600">
+            Enjoy watching your embedded movie!
         </p>
     </div>
 </body>
