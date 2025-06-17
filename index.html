@@ -1,5 +1,51 @@
-<iframe
-  src="https://vidlink.pro/movie/786892"
-  frameborder="0"
-  allowfullscreen
-></iframe>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embedded Video</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ensure it takes full viewport height */
+            margin: 0;
+            padding: 20px; /* Add some padding around the content */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio (height / width * 100%) */
+            max-width: 800px; /* Max width for larger screens */
+            background-color: #ffffff; /* White background for the container */
+            border-radius: 12px; /* Rounded corners for the container */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            overflow: hidden; /* Hide overflow for rounded corners */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none; /* Remove iframe border */
+            border-radius: 12px; /* Apply rounded corners to iframe as well */
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+    <div class="video-container">
+        <!-- The iframe for the video -->
+        <iframe
+            src="https://vidlink.pro/movie/786892"
+            frameborder="0"
+            allowfullscreen
+        ></iframe>
+    </div>
+</body>
+</html>
