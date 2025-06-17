@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embedded Movie</title>
+    <title>Your Movie Collection (First 50)</title>
     <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
@@ -12,26 +12,784 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Light gray background */
         }
+        /* Responsive video container for 16:9 aspect ratio */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+            border-radius: 0.5rem; /* Apply rounded corners to the video container */
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen p-4">
-    <div class="container mx-auto bg-white rounded-lg shadow-xl p-6 md:p-8 max-w-4xl w-full">
-        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">Your Embedded Movie</h1>
+<body class="flex flex-col items-center justify-center min-h-screen p-4">
+    <div class="container mx-auto bg-white rounded-lg shadow-xl p-6 md:p-8 max-w-6xl w-full my-8">
+        <h1 class="text-3xl font-bold text-gray-800 mb-8 text-center">Your Curated Movie Collection</h1>
 
-        <!-- Embedded video player -->
-        <!-- The iframe loads the movie from the specified URL -->
-        <div class="relative pt-[56.25%]"> <!-- This creates a 16:9 aspect ratio container -->
-            <iframe
-                src="https://embed.su/embed/movie/950387"
-                class="absolute top-0 left-0 w-full h-full rounded-lg"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-            ></iframe>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Movie Item 1: The Minecraft Movie -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Minecraft Movie (2025)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/585141"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt9590432, TMDB ID: 585141
+                </p>
+            </div>
+            <!-- Movie Item 2 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Roadkill 2024 (2024)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1223050"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt4029940, TMDB ID: 1223050
+                </p>
+            </div>
+            <!-- Movie Item 3 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Dangerous Waters 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/980285"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt20024428, TMDB ID: 980285
+                </p>
+            </div>
+            <!-- Movie Item 4 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Good Grief 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1036619"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt19887550, TMDB ID: 1036619
+                </p>
+            </div>
+            <!-- Movie Item 5 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Bricklayer 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/927107"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt2016303, TMDB ID: 927107
+                </p>
+            </div>
+            <!-- Movie Item 6 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Passionate Friends 1949 (1949)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/51618"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0041735, TMDB ID: 51618
+                </p>
+            </div>
+            <!-- Movie Item 7 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Race for Glory: Audi vs Lancia 2024 (2024)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/972433"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt20112600, TMDB ID: 972433
+                </p>
+            </div>
+            <!-- Movie Item 8 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Curse of Sleeping Beauty (2016)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/388440"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt4118606, TMDB ID: 388440
+                </p>
+            </div>
+            <!-- Movie Item 9 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Caravaggio's Shadow 2022 (2022)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/693349"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt11877386, TMDB ID: 693349
+                </p>
+            </div>
+            <!-- Movie Item 10 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Out on a Limb 1992 (1992)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/114726"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0105078, TMDB ID: 114726
+                </p>
+            </div>
+            <!-- Movie Item 11 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Society of the Snow 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/906126"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt16277242, TMDB ID: 906126
+                </p>
+            </div>
+            <!-- Movie Item 12 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Wog Boy (2000)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/16874"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0216417, TMDB ID: 16874
+                </p>
+            </div>
+            <!-- Movie Item 13 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Pippa 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/733038"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt12887208, TMDB ID: 733038
+                </p>
+            </div>
+            <!-- Movie Item 14 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Two Much (1995)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/46029"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0118001, TMDB ID: 46029
+                </p>
+            </div>
+            <!-- Movie Item 15 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">And Starring Pancho Villa as Himself 2003 (2003)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/24241"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0337824, TMDB ID: 24241
+                </p>
+            </div>
+            <!-- Movie Item 16 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Cabin Tales 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1079235"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt21110216, TMDB ID: 1079235
+                </p>
+            </div>
+            <!-- Movie Item 17 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Steeds Ridge 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1226142"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt28234508, TMDB ID: 1226142
+                </p>
+            </div>
+            <!-- Movie Item 18 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Cherry Bomb 2024 (2024)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1225703"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt24408496, TMDB ID: 1225703
+                </p>
+            </div>
+            <!-- Movie Item 19 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Group Chat 2019 (2019)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/707016"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt8660682, TMDB ID: 707016
+                </p>
+            </div>
+            <!-- Movie Item 20 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Breaking All the Rules 1985 (1985)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/44672"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0088848, TMDB ID: 44672
+                </p>
+            </div>
+            <!-- Movie Item 21 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Slightly New 2024 (2024)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1134127"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt29220279, TMDB ID: 1134127
+                </p>
+            </div>
+            <!-- Movie Item 22 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Roseanne Barr: Cancel This! 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1086739"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt22176020, TMDB ID: 1086739
+                </p>
+            </div>
+            <!-- Movie Item 23 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Mr Bates vs The Post Office: The Real Story 2024 (2024)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1225332"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt30744116, TMDB ID: 1225332
+                </p>
+            </div>
+            <!-- Movie Item 24 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Beyond a Reasonable Doubt 2009 (2009)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/25137"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt1183251, TMDB ID: 25137
+                </p>
+            </div>
+            <!-- Movie Item 25 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Three of Us 2022 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1052873"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt23804378, TMDB ID: 1052873
+                </p>
+            </div>
+            <!-- Movie Item 26 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Emotions of a Murder 2024 (2024)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1185618"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt29265463, TMDB ID: 1185618
+                </p>
+            </div>
+            <!-- Movie Item 27 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Thank You for Coming 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/957999"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt23036080, TMDB ID: 957999
+                </p>
+            </div>
+            <!-- Movie Item 28 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Bitconned 2024 (2024)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1213997"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt30317302, TMDB ID: 1213997
+                </p>
+            </div>
+            <!-- Movie Item 29 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Shershaah 2021 (2021)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/599925"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt10295212, TMDB ID: 599925
+                </p>
+            </div>
+            <!-- Movie Item 30 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Alien Report 2024 (2022)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/689703"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt17079602, TMDB ID: 689703
+                </p>
+            </div>
+            <!-- Movie Item 31 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Cardinal 1963 (1963)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/3010"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0056907, TMDB ID: 3010
+                </p>
+            </div>
+            <!-- Movie Item 32 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Jigarthanda 2014 (2014)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/270766"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt3569782, TMDB ID: 270766
+                </p>
+            </div>
+            <!-- Movie Item 33 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Exhibit A 2007 (2007)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/49341"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0972555, TMDB ID: 49341
+                </p>
+            </div>
+            <!-- Movie Item 34 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Fist of the North Star (1995)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/26300"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0113074, TMDB ID: 26300
+                </p>
+            </div>
+            <!-- Movie Item 35 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Secrets at the Inn 2022 (2022)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1033288"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt22051462, TMDB ID: 1033288
+                </p>
+            </div>
+            <!-- Movie Item 36 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Secret Love Triangle 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1224982"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt30524124, TMDB ID: 1224982
+                </p>
+            </div>
+            <!-- Movie Item 37 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">1898: Our Last Men in the Philippines 2016 (2016)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/403357"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt5698568, TMDB ID: 403357
+                </p>
+            </div>
+            <!-- Movie Item 38 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Upon Entry 2022 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1051547"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt22964884, TMDB ID: 1051547
+                </p>
+            </div>
+            <!-- Movie Item 39 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">All Dirt Roads Taste of Salt 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/800227"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt11534720, TMDB ID: 800227
+                </p>
+            </div>
+            <!-- Movie Item 40 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Inception: The Cobol Job 2010 (2010)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/64956"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt1790736, TMDB ID: 64956
+                </p>
+            </div>
+            <!-- Movie Item 41 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Warrior Strong 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1175342"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt21622842, TMDB ID: 1175342
+                </p>
+            </div>
+            <!-- Movie Item 42 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">King of the Gypsies (1978)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/20863"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0077807, TMDB ID: 20863
+                </p>
+            </div>
+            <!-- Movie Item 43 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Healed 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/988750"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt16968762, TMDB ID: 988750
+                </p>
+            </div>
+            <!-- Movie Item 44 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Parking 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1174777"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt28184712, TMDB ID: 1174777
+                </p>
+            </div>
+            <!-- Movie Item 45 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Christmas Cheer 2023 (2021)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/936798"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt11358194, TMDB ID: 936798
+                </p>
+            </div>
+            <!-- Movie Item 46 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Arthur's Whisky 2024 (2024)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1126475"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt27158093, TMDB ID: 1126475
+                </p>
+            </div>
+            <!-- Movie Item 47 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Eileen 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/664341"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt5198890, TMDB ID: 664341
+                </p>
+            </div>
+            <!-- Movie Item 48 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Suka 2023 (2023)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/1189056"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt13381622, TMDB ID: 1189056
+                </p>
+            </div>
+            <!-- Movie Item 49 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">The Minion 1998 (1998)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/51831"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt0139465, TMDB ID: 51831
+                </p>
+            </div>
+            <!-- Movie Item 50 -->
+            <div class="border border-gray-200 rounded-lg shadow-md p-4 bg-gray-50 hover:shadow-lg transition-shadow duration-300">
+                <h2 class="text-xl font-semibold text-gray-700 mb-3">Out of the Cradle 2018 (2018)</h2>
+                <div class="video-container">
+                    <iframe
+                        src="https://embed.su/embed/movie/598607"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen
+                    ></iframe>
+                </div>
+                <p class="mt-3 text-gray-600 text-sm">
+                    IMDb ID: tt10223052, TMDB ID: 598607
+                </p>
+            </div>
         </div>
 
         <p class="mt-8 text-center text-gray-600">
-            Enjoy watching your embedded movie!
+            This collection features the first 50 movies from your list, with "The Minecraft Movie" leading the way!
         </p>
     </div>
 </body>
