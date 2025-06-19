@@ -3,49 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Darren Made This</title>
+    <title>Get Started - Fill the Form</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        /* Custom font for a cleaner look */
         body {
-            font-family: "Inter", sans-serif;
-            background-color: #f0f4f8; /* Light blue-gray background */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh; /* Ensure it takes full viewport height */
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 20px; /* Add some padding around the content */
-            box-sizing: border-box; /* Include padding in element's total width and height */
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f7fafc; /* Light gray background */
         }
-        .video-container {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 Aspect Ratio (height / width * 100%) */
-            max-width: 800px; /* Max width for larger screens */
-            background-color: #ffffff; /* White background for the container */
-            border-radius: 12px; /* Rounded corners for the container */
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
-            overflow: hidden; /* Hide overflow for rounded corners */
+        /* Style for the message box */
+        .message-box {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 15px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            font-weight: bold;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-out;
         }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none; /* Remove iframe border */
-            border-radius: 12px; /* Apply rounded corners to iframe as well */
+        .message-box.success {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        .message-box.error {
+            background-color: #f44336; /* Red */
+            color: white;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        .fade-out {
+            animation: fadeOut 0.5s ease-in forwards;
         }
     </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-    <div class="video-container">
-        <!-- The iframe for the video -->
-        <iframe
-            src="https://vidlink.pro/movie/950387"
-            frameborder="0"
-            allowfullscreen
-        ></iframe>
-    </div>
+<body class="flex flex-col min-h-screen">
+    <!-- Header Section (similar to main page) -->
+    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 shadow-lg rounded-b-lg">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <h1 class="text-3xl font-bold rounded-lg p-2 bg-white bg-opacity-10">Our Awesome Project</h1>
+            <nav class="hidden md:flex space-x-6">
+                <a href="random_html_website.html" class="hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20">Home</a>
+                <a href="#" class="hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20">Features</a>
+                <a href="#" class="hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20">About Us</a>
+                <a href="#" class="hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20">Contact</a>
+            </nav>
+            <button class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Main Content Section - Form -->
+    <main class="flex-grow container mx-auto p-6 md:p-8 flex items-center justify-center">
+        <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg border border-gray-200">
+            <h2 class="text-4xl font-extrabold text-gray-800 mb-8 text-center">Tell Us More!</h2>
+            <form id="contactForm" class="space-y-6">
+                <div>
+                    <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Your Name</label>
+                    <input type="text" id="name" name="name" placeholder="John Doe"
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                           required>
+                </div>
+                <div>
+                    <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Your Email</label>
+                    <input type="email" id="email" name="email" placeholder="john.doe@example.com"
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                           required>
+                </div>
+                <div>
+                    <label for="subject" class="block text-lg font-medium text-gray-700 mb-2">Subject</label>
+                    <input type="text" id="subject" name="subject" placeholder="Question about your services"
+                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200">
+                </div>
+                <div>
+                    <label for="message" class="block text-lg font-medium text-gray-700 mb-2">Your Message</label>
+                    <textarea id="message" name="message" rows="5" placeholder="I'd like to know more about..."
+                              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                              required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" id="submitButton"
+                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
+                        Send Message
+                    </button>
+                </div>
+            </form>
+            <!-- Message box for success/error -->
+            <div id="messageBox" class="message-box hidden"></div>
+        </div>
+    </main>
+
+    <!-- Footer Section (similar to main page) -->
+    <footer class="bg-gray-800 text-white py-6 mt-12 rounded-t-lg shadow-inner">
+        <div class="container mx-auto text-center px-4">
+            <p>&copy; 2025 Our Awesome Project. All rights reserved.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="hover:text-gray-400 transition duration-300">Privacy Policy</a>
+                <a href="#" class="hover:text-gray-400 transition duration-300">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            const submitButton = document.getElementById('submitButton');
+            const messageBox = document.getElementById('messageBox');
+
+            // Disable button and show loading state
+            submitButton.disabled = true;
+            submitButton.textContent = 'Sending...';
+            submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+
+            const webhookUrl = 'https://discord.com/api/webhooks/1385349142506770553/pPWYsg-55InCvtFlV0nIDYquXXynL_X7JhOpI5Ed0ti1UP1Q0TA6QACp9eSAGj1SVVwl';
+
+            // Construct the payload for Discord webhook
+            // Using Markdown for better readability in Discord
+            const payload = {
+                content: `**New Contact Form Submission!**\n\n` +
+                         `**Name:** ${name}\n` +
+                         `**Email:** ${email}\n` +
+                         `**Subject:** ${subject || 'No Subject Provided'}\n` +
+                         `**Message:**\n\`\`\`\n${message}\n\`\`\``
+            };
+
+            try {
+                const response = await fetch(webhookUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(payload),
+                });
+
+                if (response.ok) {
+                    showMessage('Your message has been sent successfully!', 'success');
+                    document.getElementById('contactForm').reset(); // Clear the form
+                } else {
+                    const errorText = await response.text();
+                    console.error('Failed to send message:', response.status, errorText);
+                    showMessage('Failed to send message. Please try again later.', 'error');
+                }
+            } catch (error) {
+                console.error('Error sending message:', error);
+                showMessage('An error occurred. Please check your internet connection and try again.', 'error');
+            } finally {
+                // Re-enable button
+                submitButton.disabled = false;
+                submitButton.textContent = 'Send Message';
+                submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        });
+
+        // Function to display messages to the user
+        function showMessage(message, type) {
+            const messageBox = document.getElementById('messageBox');
+            messageBox.textContent = message;
+            messageBox.className = `message-box ${type}`; // Reset classes and apply new ones
+            messageBox.classList.remove('hidden', 'fade-out'); // Ensure it's visible and animation reset
+
+            // Automatically hide after 3 seconds
+            setTimeout(() => {
+                messageBox.classList.add('fade-out');
+                setTimeout(() => {
+                    messageBox.classList.add('hidden');
+                }, 500); // Allow fadeOut animation to complete
+            }, 3000);
+        }
+    </script>
 </body>
 </html>
