@@ -3,190 +3,263 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Get Started - Fill the Form</title>
-    <!-- Tailwind CSS CDN -->
+    <title>ItsJustMaths - Unblocked Games</title>
+    <!-- Tailwind CSS CDN for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom font for a cleaner look */
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            background-color: #f7fafc; /* Light gray background */
+            background-color: #1a202c; /* Dark background for a gaming feel */
+            color: #e2e8f0; /* Light text color */
+            overflow-x: hidden; /* Prevent horizontal scroll */
         }
-        /* Style for the message box */
-        .message-box {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 15px 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        .game-card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+        }
+        /* Styles for the embedded game container */
+        .game-embed-container {
+            position: fixed; /* Fixed position to cover the whole screen */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9); /* Semi-transparent black background */
+            display: flex; /* Use flexbox for centering */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* High z-index to be on top */
+            flex-direction: column; /* Arrange iframe and button vertically */
+            padding: 1rem; /* Add some padding */
+        }
+        .game-embed-iframe {
+            width: 95%; /* Occupy most of the width */
+            height: 90%; /* Occupy most of the height */
+            border: none; /* No border for the iframe */
+            border-radius: 10px; /* Rounded corners for the iframe */
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Glowing shadow */
+        }
+        .close-game-button, .fullscreen-button {
+            margin-top: 1rem;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px; /* Fully rounded */
             font-weight: bold;
-            z-index: 1000;
-            animation: fadeIn 0.5s ease-out;
+            transition: background-color 0.2s ease-in-out;
+            cursor: pointer;
+            margin-left: 0.5rem; /* Space between buttons */
+            margin-right: 0.5rem;
         }
-        .message-box.success {
-            background-color: #4CAF50; /* Green */
-            color: white;
+        .close-game-button:hover {
+            background-color: #ef4444; /* Lighter red on hover */
         }
-        .message-box.error {
-            background-color: #f44336; /* Red */
-            color: white;
+        .fullscreen-button {
+            background-color: #22c55e; /* Green color for fullscreen button */
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
-            to { opacity: 1; transform: translateX(-50%) translateY(0); }
+        .fullscreen-button:hover {
+            background-color: #4ade80; /* Lighter green on hover */
         }
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-        .fade-out {
-            animation: fadeOut 0.5s ease-in forwards;
+        .button-group {
+            display: flex; /* Arrange buttons side-by-side */
+            justify-content: center;
+            margin-top: 1rem;
         }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
-    <!-- Header Section (similar to main page) -->
-    <header class="bg-gradient-to-r from-blue-600 to-indigo-700 text-white p-4 shadow-lg rounded-b-lg">
-        <div class="container mx-auto flex justify-between items-center px-4">
-            <h1 class="text-3xl font-bold rounded-lg p-2 bg-white bg-opacity-10">Application: Moon</h1>
-            <nav class="hidden md:flex space-x-6">
-                <a href="random_html_website.html" class="hover:text-blue-200 transition duration-300 ease-in-out px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-20">Home</a>
-            </nav>
-            <button class="md:hidden text-white focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-            </button>
+    <header class="bg-gray-800 p-4 shadow-lg">
+        <div class="container mx-auto flex justify-center items-center">
+            <h1 class="text-3xl font-bold text-white">
+                ItsJustMaths
+            </h1>
         </div>
     </header>
 
-    <!-- Main Content Section - Form -->
-    <main class="flex-grow container mx-auto p-6 md:p-8 flex items-center justify-center">
-        <div class="bg-white p-8 rounded-2xl shadow-xl w-full max-w-lg border border-gray-200">
-            <h2 class="text-4xl font-extrabold text-gray-800 mb-8 text-center">Apply!</h2>
-            <form id="contactForm" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-lg font-medium text-gray-700 mb-2">Name</label>
-                    <input type="text" id="name" name="name" placeholder="John Doe"
-                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200"
-                           required>
+    <main class="container mx-auto p-6 flex-grow">
+        <section class="text-center mb-10">
+            <h2 class="text-4xl font-extrabold text-blue-400 mb-4">Welcome to ItsJustMaths!</h2>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                ItsJustMaths is a website full of unique, high quality free unblocked online games.
+            </p>
+            <div class="mt-8">
+                <input type="text" id="searchInput" placeholder="Search for games..." class="p-3 rounded-lg bg-gray-700 text-white border border-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 w-full max-w-md">
+                <button id="searchButton" class="ml-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300">Search</button>
+            </div>
+        </section>
+
+        <section class="mb-10">
+            <h3 class="text-3xl font-bold text-blue-300 mb-6 text-center">Popular Games</h3>
+            <div id="gameCardsContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Game Card 1 (Extreme Run 3D) -->
+                <div class="game-card bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 flex flex-col items-center" data-game-title="Extreme Run 3D">
+                    <img src="https://static.keygames.com/4/117414/103437/1024x1024/extreme-run-3d.webp" alt="Extreme Run 3D Game" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Extreme Run 3D</h4>
+                    <p class="text-gray-400 text-center text-sm mb-4">An endless runner game in space. Navigate through challenging tunnels and avoid falling off!</p>
+                    <button onclick="loadGame('https://html5.gamedistribution.com/332fed0d374c4401934cf5b19b7a85b1/?gd_sdk_referrer_url=https://www.onlinegames.io/extreme-run-3d/')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">Play Now</button>
                 </div>
-                <div>
-                    <label for="email" class="block text-lg font-medium text-gray-700 mb-2">Email</label>
-                    <input type="email" id="email" name="email" placeholder="john.doe@example.com"
-                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200"
-                           required>
+
+                <!-- Game Card 2 (Slope) -->
+                <div class="game-card bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 flex flex-col items-center" data-game-title="Slope">
+                    <img src="https://assets.bitent.com/images/games/thumbs/ik/334x334/slope_big_6050caa705d46.png" alt="Slope Game" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Slope</h4>
+                    <p class="text-gray-400 text-center text-sm mb-4">Control a ball down a steep slope, avoiding obstacles and collecting points. Fast-paced and addictive!</p>
+                    <button onclick="loadGame('https://html5.gamedistribution.com/0022998ce3c54962be6ffe178229b168/?gd_sdk_referrer_url=https://www.onlinegames.io/slope-rolling/')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">Play Now</button>
                 </div>
-                <div>
-                    <label for="subject" class="block text-lg font-medium text-gray-700 mb-2">Are You Subscribed To ItsLilHaz</label>
-                    <input type="text" id="subject" name="subject" placeholder="Yes or No"
-                           class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200">
+
+                <!-- Game Card 3 (Geometry Arrow) -->
+                <div class="game-card bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 flex flex-col items-center" data-game-title="Geometry Arrow">
+                    <img src="https://img.gamedistribution.com/9ee26ba4405c456094c70af7dc31a524-512x512.jpg" alt="Geometry Arrow Game" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Geometry Arrow</h4>
+                    <p class="text-gray-400 text-center text-sm mb-4">A challenging rhythm-based platformer where you guide an arrow through a world of geometric obstacles!</p>
+                    <button onclick="loadGame('https://html5.gamedistribution.com/9ee26ba4405c456094c70af7dc31a524/?gd_sdk_referrer_url=https://www.onlinegames.io/geometry-arrow/')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">Play Now</button>
                 </div>
-                <div>
-                    <label for="message" class="block text-lg font-medium text-gray-700 mb-2">Why do you want to apply?</label>
-                    <textarea id="message" name="message" rows="5" placeholder="I'd like to apply because..."
-                              class="w-full p-3 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 transition duration-200"
-                              required></textarea>
+
+                <!-- Game Card 4 (Love Tester) -->
+                <div class="game-card bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 flex flex-col items-center" data-game-title="Love Tester">
+                    <img src="https://unblocked-games.s3.amazonaws.com/media/posts/152/test.jpg" alt="Love Tester Game" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Love Tester</h4>
+                    <p class="text-gray-400 text-center text-sm mb-4">Test your compatibility with your crush or friends with this fun love calculator game!</p>
+                    <button onclick="loadGame('https://www.onlinegames.io/games/2021/3/love-tester/index.html')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">Play Now</button>
                 </div>
-                <div class="text-center">
-                    <button type="submit" id="submitButton"
-                            class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg text-lg transform hover:-translate-y-1 transition duration-300 ease-in-out">
-                        Send Message
-                    </button>
+
+                <!-- Game Card 5 (Get on Top) -->
+                <div class="game-card bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 flex flex-col items-center" data-game-title="Get on Top">
+                    <img src="https://img.ufreegames.io/cdn-cgi/image/quality=78,f=auto/covers-b/super/get-on-top-touch.png" alt="Get on Top Game" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Get on Top</h4>
+                    <p class="text-gray-400 text-center text-sm mb-4">Challenge a friend in this physics-based wrestling game where the goal is to get on top!</p>
+                    <button onclick="loadGame('https://www.onlinegames.io/games/2024/code/6/get-on-top/index.html')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">Play Now</button>
                 </div>
-            </form>
-            <!-- Message box for success/error -->
-            <div id="messageBox" class="message-box hidden"></div>
-        </div>
+
+                <!-- Game Card 6 (Rooftop Duel) -->
+                <div class="game-card bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 flex flex-col items-center" data-game-title="Rooftop Duel">
+                    <img src="https://img.poki-cdn.com/cdn-cgi/image/quality=78,width=204,height=204,fit=cover,f=auto/c127771edb0e821e4109b7058ae3f094/rooftop-snipers.jpeg" alt="Rooftop Duel Game" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Rooftop Duel</h4>
+                    <p class="text-gray-400 text-center text-sm mb-4">Engage in epic battles on rooftops in this fun and challenging two-player game!</p>
+                    <button onclick="loadGame('https://cloud.onlinegames.io/games/2025/construct/213/rooftop-duel/index-og.html')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">Play Now</button>
+                </div>
+
+                <!-- New Game Card (Block Blast) -->
+                <div class="game-card bg-gray-800 p-4 rounded-lg shadow-md hover:bg-gray-700 flex flex-col items-center" data-game-title="Block Blast">
+                    <img src="https://play-lh.googleusercontent.com/R0qgNDYYHbRhw6JFsdEbDMqONplEvJx0m0W9wzYVvY3eNF1c2rfBWYjQxW0sLEzFe1E" alt="Block Blast Game" class="w-full h-48 object-cover rounded-md mb-4">
+                    <h4 class="text-xl font-semibold mb-2">Block Blast</h4>
+                    <p class="text-gray-400 text-center text-sm mb-4">Strategically place and clear colorful blocks in this addictive puzzle game!</p>
+                    <button onclick="loadGame('https://cloud.onlinegames.io/games/2024/unity3/block-blast/index-og.html')" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full shadow-lg transition duration-300">Play Now</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="text-center my-10 bg-gray-800 p-6 rounded-lg shadow-lg">
+            <h3 class="text-3xl font-bold text-blue-300 mb-4">How it Works</h3>
+            <p class="text-lg text-gray-300 max-w-2xl mx-auto">
+                ItsJustMaths provides direct links to popular web-based games. We aim to offer a collection of titles that are often accessible even on restricted networks.
+                Just click "Play Now" on your favorite game and enjoy!
+            </p>
+        </section>
     </main>
 
-    <!-- Footer Section (similar to main page) -->
-    <footer class="bg-gray-800 text-white py-6 mt-12 rounded-t-lg shadow-inner">
-        <div class="container mx-auto text-center px-4">
-            <p>&copy; Application: Moon. All rights reserved.</p>
-            <div class="flex justify-center space-x-6 mt-4">
-                <a href="#" class="hover:text-gray-400 transition duration-300">Privacy Policy</a>
-                <a href="#" class="hover:text-gray-400 transition duration-300">Terms of Service</a>
-            </div>
+    <footer class="bg-gray-900 p-4 text-center text-gray-500 mt-auto">
+        <div class="container mx-auto">
+            <p>&copy; 2025 ItsJustMaths. All rights reserved. | <a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a> | <a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></p>
         </div>
     </footer>
 
+    <div id="gameEmbedContainer" class="game-embed-container hidden">
+        <iframe id="gameEmbedIframe" class="game-embed-iframe" allowfullscreen></iframe>
+        <div class="button-group">
+            <button id="fullscreenButton" class="fullscreen-button">Full Screen</button>
+            <button id="closeGameButton" class="close-game-button">Close Game</button>
+        </div>
+    </div>
+
+    <button id="panicButton" class="panic-button">
+        Panic!
+    </button>
+
     <script>
-        document.getElementById('contactForm').addEventListener('submit', async function(event) {
-            event.preventDefault(); // Prevent the default form submission
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchInput = document.getElementById('searchInput');
+            const searchButton = document.getElementById('searchButton');
+            const gameCardsContainer = document.getElementById('gameCardsContainer');
+            const gameCards = gameCardsContainer.getElementsByClassName('game-card');
 
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const subject = document.getElementById('subject').value;
-            const message = document.getElementById('message').value;
-            const submitButton = document.getElementById('submitButton');
-            const messageBox = document.getElementById('messageBox');
+            const gameEmbedContainer = document.getElementById('gameEmbedContainer');
+            const gameEmbedIframe = document.getElementById('gameEmbedIframe');
+            const closeGameButton = document.getElementById('closeGameButton');
+            const fullscreenButton = document.getElementById('fullscreenButton');
+            const panicButton = document.getElementById('panicButton');
 
-            // Disable button and show loading state
-            submitButton.disabled = true;
-            submitButton.textContent = 'Sending...';
-            submitButton.classList.add('opacity-50', 'cursor-not-allowed');
+            // Function to filter games based on search input
+            const filterGames = () => {
+                const searchTerm = searchInput.value.toLowerCase();
 
-            const webhookUrl = 'https://discord.com/api/webhooks/1385349142506770553/pPWYsg-55InCvtFlV0nIDYquXXynL_X7JhOpI5Ed0ti1UP1Q0TA6QACp9eSAGj1SVVwl';
+                for (let i = 0; i < gameCards.length; i++) {
+                    const card = gameCards[i];
+                    const gameTitle = card.getAttribute('data-game-title').toLowerCase();
 
-            // Construct the payload for Discord webhook
-            // Using Markdown for better readability in Discord
-            const payload = {
-                content: `**New Contact Form Submission!**\n\n` +
-                         `**Name:** ${name}\n` +
-                         `**Email:** ${email}\n` +
-                         `**Subject:** ${subject || 'No Subject Provided'}\n` +
-                         `**Message:**\n\`\`\`\n${message}\n\`\`\``
+                    if (gameTitle.includes(searchTerm)) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
             };
 
-            try {
-                const response = await fetch(webhookUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(payload),
-                });
+            // Function to load a game into the iframe
+            window.loadGame = (url) => {
+                gameEmbedIframe.src = url;
+                gameEmbedContainer.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            };
 
-                if (response.ok) {
-                    showMessage('Your message has been sent successfully!', 'success');
-                    document.getElementById('contactForm').reset(); // Clear the form
-                } else {
-                    const errorText = await response.text();
-                    console.error('Failed to send message:', response.status, errorText);
-                    showMessage('Failed to send message. Please try again later.', 'error');
+            // Function to close the embedded game
+            const closeGame = () => {
+                gameEmbedIframe.src = '';
+                gameEmbedContainer.classList.add('hidden');
+                document.body.style.overflow = '';
+                if (document.fullscreenElement) {
+                    document.exitFullscreen();
+                } else if (document.webkitFullscreenElement) {
+                    document.webkitExitFullscreen();
+                } else if (document.mozFullScreenElement) {
+                    document.mozCancelFullScreen();
                 }
-            } catch (error) {
-                console.error('Error sending message:', error);
-                showMessage('An error occurred. Please check your internet connection and try again.', 'error');
-            } finally {
-                // Re-enable button
-                submitButton.disabled = false;
-                submitButton.textContent = 'Send Message';
-                submitButton.classList.remove('opacity-50', 'cursor-not-allowed');
-            }
+            };
+
+            // Function to toggle fullscreen for the iframe
+            const toggleFullscreen = () => {
+                if (gameEmbedIframe.requestFullscreen) {
+                    gameEmbedIframe.requestFullscreen();
+                } else if (gameEmbedIframe.webkitRequestFullscreen) {
+                    gameEmbedIframe.webkitRequestFullscreen();
+                } else if (gameEmbedIframe.mozRequestFullScreen) {
+                    document.mozRequestFullScreen();
+                } else {
+                    console.log("Fullscreen API is not supported by this browser.");
+                }
+            };
+
+            // Event listener for the search button click
+            searchButton.addEventListener('click', filterGames);
+
+            // Event listener for real-time input in the search bar
+            searchInput.addEventListener('keyup', filterGames);
+
+            // Event listener for the close game button
+            closeGameButton.addEventListener('click', closeGame);
+
+            // Event listener for the new fullscreen button
+            fullscreenButton.addEventListener('click', toggleFullscreen);
+
+            // Event listener for the panic button
+            panicButton.addEventListener('click', () => {
+                window.open('https://bromcomvle.com/', '_blank');
+            });
         });
-
-        // Function to display messages to the user
-        function showMessage(message, type) {
-            const messageBox = document.getElementById('messageBox');
-            messageBox.textContent = message;
-            messageBox.className = `message-box ${type}`; // Reset classes and apply new ones
-            messageBox.classList.remove('hidden', 'fade-out'); // Ensure it's visible and animation reset
-
-            // Automatically hide after 3 seconds
-            setTimeout(() => {
-                messageBox.classList.add('fade-out');
-                setTimeout(() => {
-                    messageBox.classList.add('hidden');
-                }, 500); // Allow fadeOut animation to complete
-            }, 3000);
-        }
     </script>
 </body>
 </html>
