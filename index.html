@@ -68,6 +68,26 @@
             justify-content: center;
             margin-top: 1rem;
         }
+        .panic-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ef4444; /* Red color */
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 9999px; /* Fully rounded */
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+            z-index: 1000; /* Ensure it's above other content */
+            cursor: pointer;
+            border: none;
+        }
+        .panic-button:hover {
+            background-color: #dc2626; /* Darker red on hover */
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body class="flex flex-col min-h-screen">
@@ -257,8 +277,8 @@
                 const toggleFullscreen = () => {
                     if (gameEmbedIframe.requestFullscreen) {
                         gameEmbedIframe.requestFullscreen();
-                    } else if (gameEmbedIframe.webkitRequestFullscreen) {
-                        gameEmbedIframe.webkitRequestFullscreen();
+                    } else if (document.webkitRequestFullscreen) {
+                        document.webkitRequestFullscreen();
                     } else if (document.mozRequestFullScreen) {
                         document.mozRequestFullScreen();
                     } else {
